@@ -1,0 +1,35 @@
+services:
+  backend:
+    build: ../1.13/example-backend
+    image: example-backend:latest
+    ports:
+      - '8080:8080'
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DATABASE=postgres
+    depends_on:
+      - db
+      - redis
+
+  frontend:
+    build: ../1.12/example-frontend
+    image: example-frontend:latest
+    ports:
+      - '5000:5000'
+
+  redis:
+    image: redis:latest
+
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./Database:/var/lib/postgresql/data
