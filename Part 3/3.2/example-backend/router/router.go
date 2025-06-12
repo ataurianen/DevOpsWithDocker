@@ -24,7 +24,7 @@ func pingpong(context *gin.Context) {
 			context.String(http.StatusNotImplemented, err.Error())
 			return
 		}
-		context.String(http.StatusOK, "This is a test")
+		context.String(http.StatusOK, "pong")
 		return
 	}
 	if postgres {
@@ -37,7 +37,7 @@ func pingpong(context *gin.Context) {
 		return
 	}
 
-	context.String(http.StatusOK, "pong")
+	context.String(http.StatusOK, "This is a Test for Render")
 }
 
 // Router is the gin server router
