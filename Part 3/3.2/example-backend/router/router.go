@@ -24,7 +24,7 @@ func pingpong(context *gin.Context) {
 			context.String(http.StatusNotImplemented, err.Error())
 			return
 		}
-		context.String(http.StatusOK, "pong")
+		context.String(http.StatusOK, "This is a test")
 		return
 	}
 	if postgres {
