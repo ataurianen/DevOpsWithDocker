@@ -1,6 +1,6 @@
 services:
   backend:
-    build: ../1.13/example-backend
+    build: ../../Part 1/1.13/example-backend
     image: example-backend:latest
     environment:
       - REDIS_HOST=redis
@@ -15,7 +15,7 @@ services:
       - redis
 
   frontend:
-    build: ../1.12/example-frontend
+    build: ../../Part 1/1.12/example-frontend
     image: example-frontend:latest
 
   redis:
