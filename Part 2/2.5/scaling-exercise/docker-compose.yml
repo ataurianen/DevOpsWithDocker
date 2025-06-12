@@ -9,7 +9,7 @@ services:
       environment:
         - VIRTUAL_HOST=compute.localtest.me
   load-balancer:
-      build: ./load-balancer
+      build: load-balancer
       image: load-balancer
       volumes: 
         - /var/run/docker.sock:/tmp/docker.sock:ro
